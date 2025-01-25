@@ -2,4 +2,32 @@
     <string name="app_name">Travel Planner</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="places_with_categories">
+        <item>Maldives, Beach getaways</item>
+        <item>Bora Bora, Beach Getaways</item>
+        <item>Maui Hawaii, Beach Getaways</item>
+        <item>Phuket Thailand, Beach Getaways</item>
+        <item>Santorini Greece, Beach Getaways</item>
+
+        <item>Swiss Alps Switzerland, Mountains</item>
+        <item>Rockies Colorado, Mountains</item>
+        <item>Himalayas Nepal, Mountains</item>
+        <item>Dolomites Italy, Mountains</item>
+        <item>Andes Peru, Mountains</item>
+
+        <item>New York City USA, City Tours</item>
+        <item>Tokyo Japan, City Tours</item>
+        <item>Paris France, City Tours</item>
+        <item>Rome Italy, City Tours</item>
+        <item>Barcelona Spain, City Tours</item>
+
+        <item>Maasai Mara Kenya, Wildlife Safaris</item>
+        <item>Kruger National Park, Wildlife Safaris</item>
+        <item>Chobe National Park, Wildlife Safaris</item>
+        <item>Ranthambore India, Wildlife Safaris</item>
+        <item>Serengeti Tanzania,Wildlife Safaris</item>
+    </string-array>
+
+
 </resources>
