@@ -16,20 +16,22 @@ public class TravelPackageAdapter extends RecyclerView.Adapter<TravelPackageAdap
 
     private List<TravelPackage> travelPackageList;
     private onPackageClickListener listener;
+    private int layout_id;
 
     public interface onPackageClickListener{
         void onPackageClick(TravelPackage travelPackage);
     }
 
-    public TravelPackageAdapter(List<TravelPackage> travelPackageList, onPackageClickListener listener){
+    public TravelPackageAdapter(List<TravelPackage> travelPackageList, onPackageClickListener listener,int layout_id){
         this.travelPackageList = travelPackageList;
         this.listener = listener;
+        this.layout_id = layout_id;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.travel_package,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layout_id,parent,false);
         return new ViewHolder(view);
     }
 
@@ -38,7 +40,7 @@ public class TravelPackageAdapter extends RecyclerView.Adapter<TravelPackageAdap
         TravelPackage travelPackage = travelPackageList.get(position);
         holder.title.setText(travelPackage.getTitle());
         holder.description.setText(travelPackage.getDescription());
-        holder.price.setText("Price: "+travelPackage.getPrice()+" INR");
+        holder.price.setText("Price: "+travelPackage.getPrice()+" $");
         holder.rating.setText("Rating: "+travelPackage.getRatings());
         holder.image.setImageResource(travelPackage.getImageUrl());
         holder.itemView.setOnClickListener(view -> listener.onPackageClick(travelPackage));

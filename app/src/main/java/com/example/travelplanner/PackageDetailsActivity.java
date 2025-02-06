@@ -28,9 +28,8 @@ public class PackageDetailsActivity extends AppCompatActivity {
         imageView = findViewById(R.id.image);
 
         assert travelPackage != null;
-        String p = "Price: "+travelPackage.getPrice()+" INR";
+        String p = "Price: "+travelPackage.getPrice()+" $";
         String r = "Rating: "+travelPackage.getRatings();
-        assert travelPackage != null;
         title.setText(travelPackage.getTitle());
         description.setText(travelPackage.getDescription());
         price.setText(p);

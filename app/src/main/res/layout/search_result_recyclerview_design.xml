@@ -6,7 +6,8 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     app:contentPadding="16dp"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:background="@color/background">
 
 
     <LinearLayout
@@ -39,7 +40,7 @@
                 android:text="Package Title"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/black"
+                android:textColor="@color/primary"
                 android:maxLines="1"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="4dp" />
@@ -49,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Package description"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="#6C757D"
                 android:textSize="14sp"
                 android:maxLines="2"
                 android:paddingTop="10dp"
@@ -61,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Price: $100"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="@color/accent"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="16dp"
@@ -73,8 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rating: 4.5"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/black"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/accent"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

@@ -22,7 +22,7 @@ public class SearchResultsActivity extends AppCompatActivity implements TravelPa
     TextView no_results_message;
     ProgressBar progressBar;
 
-    //GET DESIGN LAYOUT ID FROM THE ADATER IN RECYCLER VIEW
+    //GET DESIGN LAYOUT ID FROM THE ADAPTER IN RECYCLER VIEW
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +58,11 @@ public class SearchResultsActivity extends AppCompatActivity implements TravelPa
                         progressBar.setVisibility(View.GONE);
 
                         if(filteredPackages != null && !filteredPackages.isEmpty()){
-                            TravelPackageAdapter adapter = new TravelPackageAdapter(filteredPackages,SearchResultsActivity.this);
+                            TravelPackageAdapter adapter = new TravelPackageAdapter(filteredPackages,SearchResultsActivity.this,R.layout.search_result_recyclerview_design);
                             result_recycler_view.setAdapter(adapter);
                             result_recycler_view.setVisibility(View.VISIBLE);
+                        }else{
+                            no_results_message.setVisibility(View.VISIBLE);
                         }
                     }
                 });

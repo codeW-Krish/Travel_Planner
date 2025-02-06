@@ -20,6 +20,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ public class HomeFragment extends Fragment implements TravelPackageAdapter.onPac
     private RecyclerView recyclerView;
     private List<TravelPackage> travelPackageList;
 
-    EditText et_date, et_time;
+    TextView et_date, et_time;
     AutoCompleteTextView actv_destination;
     Button btn_search;
 
@@ -60,7 +61,7 @@ public class HomeFragment extends Fragment implements TravelPackageAdapter.onPac
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        TravelPackageAdapter adapter = new TravelPackageAdapter(travelPackageList,this);
+        TravelPackageAdapter adapter = new TravelPackageAdapter(travelPackageList,this,R.layout.travel_package);
         recyclerView.setAdapter(adapter);
 
         String[] places_with_category = getResources().getStringArray(R.array.places_with_categories);
@@ -109,78 +110,44 @@ public class HomeFragment extends Fragment implements TravelPackageAdapter.onPac
             public void onClick(View view) {
                 boolean isValidate = validateInputs();
 
-                if(isValidate) {
+                if (isValidate) {
                     String query = actv_destination.getText().toString();
                     filterAndNavigate(query);
+
+                    view.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            actv_destination.setText("");
+                            et_date.setText("");
+                            et_time.setText("");
+                        }
+                    },300);
+
                 }
-                actv_destination.setText("");
             }
         });
         return view;
     }
 
-
     private void setTextWatchers(){
         actv_destination.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                actv_destination.setError(null);
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(editable.toString().trim().isEmpty()){
+                if(charSequence.toString().trim().isEmpty()){
                     actv_destination.setError("Destination cannot be Empty!");
                 }else{
                     actv_destination.setError(null);
                 }
             }
-        });
-
-        et_date.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(editable.toString().trim().isEmpty()){
-                    et_date.setError("Date cannot be Empty!");
-                }else{
-                    et_date.setError(null);
-                }
-            }
-        });
 
-        et_time.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(editable.toString().trim().isEmpty()){
-                    et_time.setError("Time cannot be Empty!");
-                }else{
-                    et_time.setError(null);
-                }
             }
         });
     }
@@ -196,11 +163,15 @@ public class HomeFragment extends Fragment implements TravelPackageAdapter.onPac
         if(et_date.getText().toString().trim().isEmpty()){
             et_date.setError("Date cannot be Empty!");
             isValid = false;
+        }else{
+            et_date.setError(null);
         }
 
         if(et_time.getText().toString().trim().isEmpty()){
             et_time.setError("Time cannot be Empty!");
             isValid = false;
+        }else{
+            et_time.setError(null);
         }
 
         return isValid;

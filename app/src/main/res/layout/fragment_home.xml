@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello,"
-            android:textColor="@color/white"
+            android:textColor="@color/background"
             android:textSize="28sp" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Let's Start Exploring"
-            android:textColor="@color/white"
+            android:textColor="@color/accent"
             android:textSize="30sp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="16dp"
@@ -98,7 +98,7 @@
             android:elevation="10dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_date"
@@ -111,7 +111,7 @@
                 android:textColor="@color/black"
                 android:textSize="21sp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_time"
@@ -132,11 +132,11 @@
             android:id="@+id/btn_search"
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FF9800"
+            android:backgroundTint="@color/primary"
             android:paddingTop="9dp"
             android:paddingBottom="9dp"
             android:text="Search"
-            android:textColor="@color/black"
+            android:textColor="@color/background"
             android:textSize="22sp" />
 
     </LinearLayout>
